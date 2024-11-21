@@ -22,6 +22,9 @@ import ValidateInfo from './pages/AllNumbers/ValidateInfo.tsx';
 
 const hiddenOnRoutes = ['/', '/signup', '/signin'];
 
+
+
+
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const { pathname } = useLocation();
