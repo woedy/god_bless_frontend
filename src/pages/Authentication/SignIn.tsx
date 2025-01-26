@@ -63,8 +63,7 @@ const SignIn: React.FC = () => {
 
       if (response.status === 200) {
         // Login successful, store user data and token in local storage
-        localStorage.setItem('first_name', responseData.data.first_name);
-        localStorage.setItem('last_name', responseData.data.last_name);
+        localStorage.setItem('username', responseData.data.username);
         localStorage.setItem('user_id', responseData.data.user_id);
         localStorage.setItem('email', responseData.data.email);
 
@@ -76,6 +75,8 @@ const SignIn: React.FC = () => {
         console.log('Login successful');
         console.log(responseData.data.token);
         navigate('/dashboard');
+        window.location.reload();
+
       } else if (response.status === 400) {
         setEmailError(
           responseData.errors.email ? responseData.errors.email[0] : '',
@@ -122,14 +123,22 @@ const SignIn: React.FC = () => {
               </h2>
 
               {emailError && (
-                <div
-                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-3"
-                  role="alert"
-                >
-                  <strong className="font-bold">Error!</strong>
-                  <span className="block sm:inline"> {emailError}</span>
-                </div>
-              )}
+  <div
+    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-3"
+    role="alert"
+  >
+    <strong className="font-bold">Error!</strong>
+    <span className="block sm:inline">
+      {emailError}{" "}
+      {emailError.includes("Please check your email to confirm your account") && (
+        <Link to={'/verify-user/' + email} className="text-blue-500 underline">
+          Verify
+        </Link>
+      )}
+    </span>
+  </div>
+)}
+
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">

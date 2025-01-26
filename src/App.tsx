@@ -1,37 +1,30 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 
 import Dashboard from './pages/Dashboard/Dashboard';
-
-import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
 import DefaultLayout from './layout/DefaultLayout';
 import SignUp from './pages/Authentication/SignUp';
 import SignIn from './pages/Authentication/SignIn';
-
-import AddRegion from './pages/Regions/AddRegion';
-import AllRegions from './pages/Regions/AllRegions';
-import RegionDetails from './pages/Regions/RegionDetails';
-import AllNumbers from './pages/AllNumbers/AllNumbers';
 import GenerateNumbers from './pages/AllNumbers/GenerateNumbers';
 import ValidateNumber from './pages/Validation/ValidateNumber.tsx';
 import ValidateInfo from './pages/AllNumbers/ValidateInfo.tsx';
+import VerifyUser from './pages/Authentication/VerifyUser.tsx';
+import AllNumbers from './pages/AllNumbers/AllNumbers.tsx';
+import Profile from './pages/Profile/Profile.tsx';
+import Settings from './pages/Profile/Settings.tsx';
+import PhoneNumberCSVGenerator from './pages/Download/DownloadCSV.tsx';
 
-const hiddenOnRoutes = ['/', '/signup', '/signin'];
-
-
-
+const hiddenOnRoutes = ['/', '/signup', '/signin', '/verify-user'];
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
-  const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
@@ -40,7 +33,7 @@ function App() {
   return loading ? (
     <Loader />
   ) : (
-    <DefaultLayout pathname={pathname} hiddenOnRoutes={hiddenOnRoutes}>
+    <DefaultLayout hiddenOnRoutes={hiddenOnRoutes}>
       <Routes>
         <Route
           path="/dashboard"
@@ -51,7 +44,6 @@ function App() {
             </>
           }
         />
-
         <Route
           index
           element={
@@ -61,7 +53,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/signup"
           element={
@@ -71,7 +62,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/signin"
           element={
@@ -81,63 +71,16 @@ function App() {
             </>
           }
         />
-
-
-
         <Route
-          path="/ui/alerts"
+          path="/verify-user/:user_email"
           element={
             <>
-              <PageTitle title="Alerts | God Bless America " />
-              <Alerts />
+              <PageTitle title="Verify User | God Bless America" />
+              <VerifyUser />
             </>
           }
         />
         <Route
-          path="/ui/buttons"
-          element={
-            <>
-              <PageTitle title="Buttons | God Bless America" />
-              <Buttons />
-            </>
-          }
-        />
-
-        {/* Elections Navigation Here */}
-
-        <Route
-          path="/add-region"
-          element={
-            <>
-              <PageTitle title="Add region - Sels | Smart Election Ledger System" />
-              <AddRegion />
-            </>
-          }
-        />
-
-        <Route
-          path="/all-regions"
-          element={
-            <>
-              <PageTitle title="All regions - Sels | Smart Election Ledger System" />
-              <AllRegions />
-            </>
-          }
-        />
-
-        <Route
-          path="/region-details/:region_id"
-          element={
-            <>
-              <PageTitle title="Region Details - Sels | Smart Election Ledger System" />
-              <RegionDetails />
-            </>
-          }
-        />
-
-
-
-<Route
           path="/all-numbers"
           element={
             <>
@@ -146,9 +89,7 @@ function App() {
             </>
           }
         />
-
-
-<Route
+        <Route
           path="/validate-number"
           element={
             <>
@@ -157,12 +98,7 @@ function App() {
             </>
           }
         />
-
-
-
-
-
-<Route
+        <Route
           path="/generate-numbers"
           element={
             <>
@@ -171,8 +107,7 @@ function App() {
             </>
           }
         />
-
-<Route
+        <Route
           path="/validate-info"
           element={
             <>
@@ -181,12 +116,26 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <PageTitle title="Validate Info - God Bless America" />
+              <Profile />
+            </>
+          }
+        />
+      6
 
-
-
-        
-
-
+      <Route
+          path="/download-csv"
+          element={
+            <>
+              <PageTitle title="Download CSV - God Bless America" />
+              <PhoneNumberCSVGenerator />
+            </>
+          }
+        />
       </Routes>
     </DefaultLayout>
   );

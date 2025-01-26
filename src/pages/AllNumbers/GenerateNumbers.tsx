@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
-import userThree from '../../images/user/user-03.png';
 import { baseUrl, userID, userToken } from '../../constants';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,6 +46,7 @@ const GenerateNumbers = () => {
   
     // Create FormData object
     const formData = new FormData();
+    formData.append('user_id', userID);
     formData.append('area_code', areaCode);
     formData.append('size', size);
   
