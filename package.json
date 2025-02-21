@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "npx serve -s dist"
+    "start": "vite preview --host"
+
   },
   "author": {
     "name": "TailAdmin",
@@ -43,7 +44,6 @@
     "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss": "^3.2.0",
     "vite": "^4.4.7",
-    "webpack": "^5.88.2",
-    "serve": "^14.0.1"  
+    "webpack": "^5.88.2"
   }
 }
