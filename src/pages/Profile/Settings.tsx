@@ -33,7 +33,7 @@ const Settings = () => {
 
       const data = await response.json();
       setAbstractAPI(data.data.asbract_api);
-      setIpqualityAPI(data.data.asbract_api);
+      setIpqualityAPI(data.data.ipquality_api);
 
       console.log('#######################################');
     } catch (error) {

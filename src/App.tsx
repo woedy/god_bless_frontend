@@ -125,7 +125,7 @@ function App() {
             </>
           }
         />
-      6
+      
 
       <Route
           path="/download-csv"
@@ -133,6 +133,17 @@ function App() {
             <>
               <PageTitle title="Download CSV - God Bless America" />
               <PhoneNumberCSVGenerator />
+            </>
+          }
+        />
+     
+
+      <Route
+          path="/settings"
+          element={
+            <>
+              <PageTitle title="Settings - God Bless America" />
+              <Settings />
             </>
           }
         />
