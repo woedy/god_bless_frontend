@@ -16,6 +16,8 @@ import AllNumbers from './pages/AllNumbers/AllNumbers.tsx';
 import Profile from './pages/Profile/Profile.tsx';
 import Settings from './pages/Profile/Settings.tsx';
 import PhoneNumberCSVGenerator from './pages/Download/DownloadCSV.tsx';
+import SMTPManager from './pages/SMTP/SMTPManager.tsx';
+import SmsSender from './pages/SmsSender/SmsSender.tsx';
 
 const hiddenOnRoutes = ['/', '/signup', '/signin', '/verify-user'];
 
@@ -125,9 +127,8 @@ function App() {
             </>
           }
         />
-      
 
-      <Route
+        <Route
           path="/download-csv"
           element={
             <>
@@ -136,14 +137,32 @@ function App() {
             </>
           }
         />
-     
 
-      <Route
+        <Route
           path="/settings"
           element={
             <>
               <PageTitle title="Settings - God Bless America" />
               <Settings />
+            </>
+          }
+        />
+
+        <Route
+          path="/smtp-manager"
+          element={
+            <>
+              <PageTitle title="SMTP Manager - God Bless America" />
+              <SMTPManager />
+            </>
+          }
+        />
+        <Route
+          path="/sms-sender"
+          element={
+            <>
+              <PageTitle title="SMS Sender - God Bless America" />
+              <SmsSender />
             </>
           }
         />
