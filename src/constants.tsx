@@ -21,6 +21,8 @@ export const username = localStorage.getItem('username');
 
 
 export const userPhoto = localStorage.getItem('photo');
+export const projectID = localStorage.getItem('projectID');
+export const project_name = localStorage.getItem('project_name');
 
 
 export const truncateText = (text, maxLength) => {

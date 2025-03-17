@@ -18,8 +18,10 @@ import Settings from './pages/Profile/Settings.tsx';
 import PhoneNumberCSVGenerator from './pages/Download/DownloadCSV.tsx';
 import SMTPManager from './pages/SMTP/SMTPManager.tsx';
 import SmsSender from './pages/SmsSender/SmsSender.tsx';
+import AddProject from './pages/Projects/AddProject.tsx';
+import AllProjects from './pages/Projects/AllProjects.tsx';
 
-const hiddenOnRoutes = ['/', '/signup', '/signin', '/verify-user'];
+const hiddenOnRoutes = ['/', '/signup', '/signin', '/verify-user', '/all-projects', '/add-project'];
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -163,6 +165,24 @@ function App() {
             <>
               <PageTitle title="SMS Sender - God Bless America" />
               <SmsSender />
+            </>
+          }
+        />
+        <Route
+          path="/add-project"
+          element={
+            <>
+              <PageTitle title="Add Project - God Bless America" />
+              <AddProject />
+            </>
+          }
+        />
+        <Route
+          path="/all-projects"
+          element={
+            <>
+              <PageTitle title="All Projects - God Bless America" />
+              <AllProjects />
             </>
           }
         />

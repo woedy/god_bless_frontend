@@ -74,7 +74,7 @@ const SignIn: React.FC = () => {
         // Redirect to dashboard or perform other actions
         console.log('Login successful');
         console.log(responseData.data.token);
-        navigate('/dashboard');
+        navigate('/all-projects');
         window.location.reload();
 
       } else if (response.status === 400) {

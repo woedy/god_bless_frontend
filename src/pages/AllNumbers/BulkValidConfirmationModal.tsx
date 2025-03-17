@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BulkValidConfirmationModal = ({ isOpen, onConfirm, onCancel, itemId }) => {
+const BulkValidConfirmationModal = ({ isOpen, onConfirm, onCancel, itemId, loading }) => {
   if (!isOpen) return null;
 
   return (
@@ -14,7 +14,7 @@ const BulkValidConfirmationModal = ({ isOpen, onConfirm, onCancel, itemId }) => 
             onClick={() => onConfirm(itemId)}
             className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
           >
-            validate
+           {loading ? 'Validating...' : 'Confirm (B)'}
           </button>
           <button
             onClick={onCancel}

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumbs/Breadcrumb';
 import userThree from '../../images/user/user-03.png';
-import { baseUrl, truncateText, userID, userToken } from '../../constants';
+import { baseUrl, projectID, truncateText, userID, userToken } from '../../constants';
 import { Link, useNavigate } from 'react-router-dom';
 import Pagination from '../../components/Pagination';
 
@@ -26,7 +26,7 @@ const ValidateInfo = () => {
       const response = await fetch(
         `${baseUrl}api/phone-generator/get-valid-numbers/?search=${encodeURIComponent(
           search,
-        )}&page=${page}&user_id=${userID}`,
+        )}&page=${page}&user_id=${userID}&project_id=${projectID}`,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -60,6 +60,8 @@ const ValidateInfo = () => {
     <>
       <div className="mx-auto max-w-full">
         <Breadcrumb pageName="Validate Info" />
+
+        <p className='pb-5'>{itemCount} numbers</p>
 
         <div className="grid grid-cols-12 gap-5">
           <div className="col-span-6 xl:col-span-8">

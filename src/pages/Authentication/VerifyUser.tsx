@@ -6,9 +6,6 @@ import { baseUrl } from '../../constants';
 const VerifyUser: React.FC = () => {
   const [emailToken, setEmailToken] = useState('');
 
-
-
-
   const [inputError, setInputError] = useState('');
   const [loading, setLoading] = useState(false);
   const { user_email } = useParams();
@@ -18,8 +15,6 @@ const VerifyUser: React.FC = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-  
-
     // Clear any previous error
     setInputError('');
 
@@ -27,10 +22,6 @@ const VerifyUser: React.FC = () => {
       setInputError('EmailToken required.');
       return;
     }
-
- 
-
-
 
     // Create FormData object
     const formData = new FormData();
@@ -78,8 +69,6 @@ const VerifyUser: React.FC = () => {
     }
   };
 
- 
-
   return (
     <>
       <Breadcrumb pageName="Verify User" />
@@ -88,15 +77,13 @@ const VerifyUser: React.FC = () => {
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2 bg-primary">
             <div className="py-17.5 px-26 text-center">
-              <h2 className="text-3xl font-bold text-white mb-2">God Bless America</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">
+                God Bless America
+              </h2>
               <p className="2xl:px-15 text-xl text-white mb-2">
                 God Bless America
               </p>
-              <p className="2xl:px-15 text-white">
-                Open Source Inteligence
-              </p>
-
-           
+              <p className="2xl:px-15 text-white">Open Source Inteligence</p>
             </div>
           </div>
 
@@ -117,10 +104,7 @@ const VerifyUser: React.FC = () => {
               )}
 
               <form onSubmit={handleSubmit}>
-      
                 <div className="grid grid-cols-1 gap-2">
-                
-
                   <div className="mb-4">
                     <label className="mb-2.5 block font-medium text-black dark:text-white">
                       EmailToken
@@ -161,9 +145,6 @@ const VerifyUser: React.FC = () => {
                   </div>
                 </div>
 
- 
-             
-
                 <div className="mb-5">
                   {loading ? (
                     <div
@@ -196,8 +177,6 @@ const VerifyUser: React.FC = () => {
                     />
                   )}
                 </div>
-
-          
               </form>
             </div>
           </div>

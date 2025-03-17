@@ -4,6 +4,7 @@ import DropdownNotification from './DropdownNotification';
 import DropdownUser from './DropdownUser';
 import LogoIcon from '../../images/logo/logo-icon.svg';
 import DarkModeSwitcher from './DarkModeSwitcher';
+import { project_name } from '../../constants';
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -95,6 +96,11 @@ const Header = (props: {
               />
             </div>
           </form>
+        </div>
+
+        <div>
+          <p>Working in</p>
+          <p className='font-semibold text-xl'> {`${project_name}`} </p>
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">
